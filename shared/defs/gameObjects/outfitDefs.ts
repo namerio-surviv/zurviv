@@ -775,7 +775,7 @@ const SkinDefs: Record<string, OutfitDef> = {
         lore: "For those that helped.",
         skinImg: {
             baseTint: 0xffffff,
-            baseSprite: "player-base-outfitZurvivContributr.img",
+            baseSprite: "player-base-outfitContributr.img",
             handTint: 0x00c8ff,
             handSprite: "player-hands-02.img",
             footTint: 0x00c8ff,
