@@ -54,7 +54,7 @@ export function onPlayerJoin(data: Player) {
     data.weaponManager.setCurWeapIndex(WeaponSlot.Primary);
     data.addPerk("endless_ammo", false);
     data.addPerk("self_revive", false);
-    // if (!data.game.map.perkMode) data.addPerk("takedown", false);
+    if (!data.game.map.perkMode) data.addPerk("takedown", false);
 }
 export default class DeathMatchPlugin extends GamePlugin {
     protected override initListeners(): void {
