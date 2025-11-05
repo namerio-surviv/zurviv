@@ -3777,11 +3777,11 @@ export class Player extends BaseGameObject {
         if (obj.destroyed) return;
 
         const def = GameObjectDefs[obj.type];
-        if (
-            (this.actionType == GameConfig.Action.UseItem && def.type != "gun") ||
-            this.actionType == GameConfig.Action.Revive
-        )
-            return;
+        // if (
+        //     (this.actionType == GameConfig.Action.UseItem && def.type != "gun") ||
+        //     this.actionType == GameConfig.Action.Revive
+        // )
+        //     return;
 
         if (this.pickupTicker > 0) return;
         this.pickupTicker = 0.1;
