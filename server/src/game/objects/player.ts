@@ -2005,7 +2005,18 @@ export class Player extends BaseGameObject {
                         break;
                     }
                     case "perk": {
-                        if (!this.perks.find((perk) => perk.droppable)) {
+                        /**
+                         * Prevents mobile players from automatically picking up
+                         * halloween perks. Additionally prevents them from auto-picking
+                         * up perks if they already have a droppable perk.
+                         *
+                         * NOTE: This is a poor solution (idString checking) and should
+                         * not be used as a precedent to allow more idString checking.
+                         */
+                        if (
+                            closestLoot.type !== "halloween_mystery" &&
+                            !this.perks.find((perk) => perk.droppable)
+                        ) {
                             this.pickupLoot(closestLoot);
                         }
                         break;
