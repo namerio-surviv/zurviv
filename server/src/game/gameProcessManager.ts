@@ -227,7 +227,7 @@ export class GameProcessManager implements GameManager {
     getSpectableGames() {
         const region = Config.regions[Config.gameServer.thisRegion];
         const data = this.processes
-            .filter((p) => !p.stopped && !p.private)
+            .filter((p) => !p.stopped && !p.private && p.aliveCount)
             .map(
                 (p) =>
                     ({
