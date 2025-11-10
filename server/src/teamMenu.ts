@@ -271,18 +271,11 @@ class Room {
                 .where(inArray(usersTable.id, userIds));
         }
 
-        if (
-            process.env.NODE_ENV === "production"
-            // EVENT_MODES.includes(data?.mapName!) ||
-            // data.mode === "competitive" ||
-            // data.mode === "event"
-        ) {
-            for (const player of this.players) {
-                if (!player.hasServerRole) {
-                    this.data.lastError = "find_game_invalid_role";
-                    this.sendState();
-                    return;
-                }
+        for (const player of this.players) {
+            if (!player.hasServerRole) {
+                this.data.lastError = "find_game_invalid_role";
+                this.sendState();
+                return;
             }
         }
         const playerData = this.players.map((p) => {

@@ -141,15 +141,8 @@ app.post("/api/find_game", validateParams(zFindGameBody), async (c) => {
         return c.json<FindGameResponse>({ error: "behind_proxy" });
     }
     const body = c.req.valid("json");
-    if (
-        process.env.NODE_ENV === "production"
-        // body.mode === "event" ||
-        // body.mode === "competitive" ||
-        // EVENT_MODES.includes(body.mapName)
-    ) {
-        if (!hasServerRole) {
-            return c.json<FindGameResponse>({ error: "invalid_role" });
-        }
+    if (!hasServerRole) {
+        return c.json<FindGameResponse>({ error: "invalid_role" });
     }
 
     if (server.captchaEnabled && !user) {
@@ -236,7 +229,6 @@ app.post(
 );
 
 app.post("/api/get_spectable_games", async (c) => {
-    // TODO: add local cache maybe?
     const promises = Object.values(Config.regions).map(async (region) => {
         const res = await fetch(
             `${region.https ? "https" : "http"}://${region.address}/api/get_spectable_games`,
