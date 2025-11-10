@@ -137,7 +137,7 @@ LocalMain["lootTable"] = {
         { name: "m4a1", count: 1, weight: 1 },
         { name: "m249", count: 1, weight: 1 },
         { name: "awc", count: 1, weight: 1 },
-        { name: "pkp", count: 1, weight: 1 },
+        // { name: "pkp", count: 1, weight: 1 },
     ],
     tier_sledgehammer: [{ name: "sledgehammer", count: 1, weight: 1 }],
     tier_chest_04: [
@@ -173,6 +173,6 @@ LocalMain["lootTable"] = {
     ],
     tier_hatchet: [
         { name: "pan", count: 1, weight: 1 },
-        { name: "pkp", count: 1, weight: 1 },
+        // { name: "pkp", count: 1, weight: 1 },
     ],
 };
