@@ -264,7 +264,8 @@ export class WeaponManager {
 
         if (
             // this.weapons[this.curWeapIdx].cooldown <= 0 &&
-            this.scheduledReload) {
+            this.scheduledReload
+        ) {
             this.scheduledReload = false;
             this.tryReload();
         }

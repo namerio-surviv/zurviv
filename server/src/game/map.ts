@@ -27,7 +27,6 @@ import { Obstacle } from "./objects/obstacle";
 import type { Player } from "./objects/player";
 import { Structure } from "./objects/structure";
 import { RiverCreator } from "./riverCreator";
-import { returnJson } from "../utils/serverHelpers";
 
 // most of this logic is based on the `renderMapBuildingBounds` from client debugHelpers
 // which was found on BHA leak
@@ -962,11 +961,12 @@ export class GameMap {
         for (let i = 0; i < count; i++) {
             const def = MapObjectDefs[type];
             if (noRivers) {
-                if ( 
+                if (
                     def.terrain?.river ||
                     def.terrain?.riverShore ||
                     def.terrain?.riverShore
-                ) return;
+                )
+                    return;
             }
             if (def.terrain?.waterEdge) {
                 this.genOnWaterEdge(type);

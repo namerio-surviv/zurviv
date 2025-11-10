@@ -817,7 +817,6 @@ export class Player extends BaseGameObject {
      */
     joinedAsASpectator = false;
 
-
     private _spectating?: Player;
 
     get spectating(): Player | undefined {
@@ -2611,15 +2610,14 @@ export class Player extends BaseGameObject {
         // livingPlayers is used here instead of a more "efficient" option because its sorted while other options are not
         const spectatablePlayers = this.game.playerBarn.livingPlayers.filter(
             (p) =>
-                this != p &&
-                !p.disconnected &&
-                this.joinedAsASpectator || (this.game.modeManager.getPlayerAlivePlayersContext(this).length === 0 ||
-                    p.teamId == this.teamId),
+                (this != p && !p.disconnected && this.joinedAsASpectator) ||
+                this.game.modeManager.getPlayerAlivePlayersContext(this).length === 0 ||
+                p.teamId == this.teamId,
         );
 
         let playerToSpec: Player | undefined;
         switch (true) {
-            case (this.joinedAsASpectator && !this.spectating):
+            case this.joinedAsASpectator && !this.spectating:
                 playerToSpec = this.game.playerBarn.randomPlayer(this);
                 break;
             case spectateMsg.specBegin:
@@ -2652,7 +2650,7 @@ export class Player extends BaseGameObject {
                 );
                 break;
         }
-        
+
         this.spectating = playerToSpec;
     }
 
