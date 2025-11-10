@@ -40,6 +40,7 @@ export type Atlas =
     | "woods"
     | "cobalt"
     | "savannah"
+    | "turkey"
     | "inferno";
 
 export const MapDefs = {
