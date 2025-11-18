@@ -147,7 +147,7 @@ export const loadout = {
             items.push(heroItems[i]);
         }
         return items;
-    }, 
+    },
 };
 export const isItemInLoadout = (item: string, category: string) => {
     const def = GameObjectDefs[item];
