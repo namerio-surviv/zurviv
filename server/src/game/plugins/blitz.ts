@@ -11,6 +11,7 @@ import { ObjectType } from "../../../../shared/net/objectSerializeFns";
 import { Config } from "../../config";
 import type { Player } from "../objects/player";
 import { GamePlugin, PlayerDamageEvent } from "../pluginManager";
+import { isItemInLoadout } from "../../../../shared/utils/loadout";
 
 const BACKPACK_LEVEL = 3;
 export function onPlayerJoin(data: Player) {
